@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 
+import { Choice } from "../choice";
+import { StreakMeter } from "../streak-meter";
+
+import "./game.css"
+
 export class GamePage extends Component {
   constructor(props) {
     super(props);
     this.handleChoiceClick = this.handleChoiceClick.bind(this);
-    this.handleResponse = this.handleResponse.bind(this);
+    this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      userChoice = undefined,
-      streak = 0,
-      curr_problem = 0,
-    }
+      userChoice: undefined,
+      streak: 0,
+      curr_problem: 0,
+    };
   }
 
   problems = [
@@ -63,27 +68,28 @@ export class GamePage extends Component {
   render() {
     const { curr_problem, streak } = this.state;
     const problem = this.problems[curr_problem];
+
     return (
       <div className="Game">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-        <div>
-          <div className="Streak-Meter">
-            <StreakMeter streak={streak} />
-          </div>
-          <div className="Game-Problem">
-            <p>{problem.question} = </p>
-            <input
-                type="text"
-                onKeyUp={e => his.handleInput(e.target.value)} />
-            <button onClick={this.handleSubmit} />
-            {problem.choices.map((c, idx) =>
+        <div className="Streak-Meter">
+          <StreakMeter streak={streak} />
+        </div>
+        <div className="Game-Problem">
+          <p>{problem.question} = </p>
+          <input
+              type="text"
+              onKeyUp={e =>
+                this.handleInput(e.target.value)
+              } />
+          <button onClick={this.handleSubmit}>Enter</button>
+          <div className="Choice-Container">
+            {problem.choices.map((c, idx) => (
               <Choice
+                  key={`choice-${idx}`}
                   color={this.colors[idx]}
                   value={c}
                   onClick={() => this.handleChoiceClick(c)} />
-            )}
+            ))}
           </div>
         </div>
       </div>
