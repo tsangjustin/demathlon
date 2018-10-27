@@ -15,6 +15,7 @@ export class GamePage extends Component {
       userChoice: undefined,
       streak: 0,
       curr_problem: 0,
+      userEarnings: localStorage.getItem("coins") || 0,
     };
   }
 
@@ -23,6 +24,11 @@ export class GamePage extends Component {
       question: "1 + 1",
       answer: 2,
       choices: [11, 1, 2, 4],
+    },
+    {
+      question: "7 * 4",
+      answer: 28,
+      choices: [28, 32, 47, 74],
     },
   ];
 
@@ -33,40 +39,50 @@ export class GamePage extends Component {
     "#44DCE5",
   ];
 
+  shapes = [
+    "Square",
+    "Triangle",
+    "Trapezoid",
+    "Circle",
+  ];
+
   handleChoiceClick(choice) {
+    console.log(choice);
     this.setState({
       userChoice: choice,
-    });
-    this.handleSubmit();
+    }, this.handleSubmit);
   }
 
   handleInput(inputValue) {
-    console.log(inputValue);
     this.setState({
       userChoice: inputValue,
     });
   }
 
   handleSubmit() {
-    const { curr_problem, userChoice, streak } = this.state;
+    const { curr_problem, streak, userChoice, userEarnings } = this.state;
     // Check if correct
     const problem = this.problems[curr_problem];
     const correct_answer = problem.answer;
     if (userChoice == correct_answer) {
       this.setState({
         streak: streak + 1,
-        curr_problem: curr_problem + 1,
+        curr_problem: (curr_problem + 1) % this.problems.length,
+        userEarnings: userEarnings + 3,
+      }, () => {
+        localStorage.setItem("coins", this.state.userEarnings);
       });
     } else {
       this.setState({
         streak: 0,
-        curr_problem: curr_problem + 1,
+        curr_problem: (curr_problem + 1) % this.problems.length,
       });
     }
   }
 
   render() {
-    const { curr_problem, streak } = this.state;
+    const { curr_problem, streak, userEarnings } = this.state;
+
     const problem = this.problems[curr_problem];
 
     return (
@@ -87,10 +103,16 @@ export class GamePage extends Component {
               <Choice
                   key={`choice-${idx}`}
                   color={this.colors[idx]}
+                  shape={this.shapes[idx]}
                   value={c}
                   onClick={() => this.handleChoiceClick(c)} />
             ))}
           </div>
+        </div>
+        {/* Coin section */}
+        <div className="Coin-Container">
+          <p>{userEarnings}</p>
+          <img src="/images/coin.jpg" alt="Coin icon" className="Coins" />
         </div>
       </div>
     );

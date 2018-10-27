@@ -5,3 +5,16 @@
 .Choice-Container {
   display: flex;
 }
+
+.Coin-Container {
+  position: absolute;
+  margin: 10px;
+  right: 0px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Coins {
+  height: 50px;
+  width: 50px;
+}
