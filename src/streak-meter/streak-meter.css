@@ -1,0 +1,14 @@
+.Meter-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.Bar {
+  top: 0;
+  left: 0;
+  margin-left: 15px;
+  margin-top: 245px;
+  position: absolute;
+}
