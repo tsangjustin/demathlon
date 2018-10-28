@@ -15,6 +15,32 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.closebtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 2em;
+  margin: 10px;
+}
+
+.Badge-Store-Wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Cost-Wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Store-Coins {
+  height: 25px;
+  width: 25px;
 }
 
 .Games-Container {
