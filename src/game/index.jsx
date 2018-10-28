@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 import { Choice } from "../choice";
 import { StreakMeter } from "../streak-meter";
@@ -15,7 +16,7 @@ export class GamePage extends Component {
       userChoice: undefined,
       streak: 0,
       curr_problem: 0,
-      userEarnings: localStorage.getItem("coins") || 0,
+      userEarnings: Number(localStorage.getItem("coins")) || 0,
     };
   }
 
@@ -86,33 +87,40 @@ export class GamePage extends Component {
     const problem = this.problems[curr_problem];
 
     return (
-      <div className="Game">
-        <div className="Streak-Meter">
-          <StreakMeter streak={streak} />
+      <div>
+        <div className="NavBar">
+          <Link to="/app">
+            <i className="fas fa-arrow-left left-arrow"></i>
+          </Link>
         </div>
-        <div className="Game-Problem">
-          <p>{problem.question} = </p>
-          <input
-              type="text"
-              onKeyUp={e =>
-                this.handleInput(e.target.value)
-              } />
-          <button onClick={this.handleSubmit}>Enter</button>
-          <div className="Choice-Container">
-            {problem.choices.map((c, idx) => (
-              <Choice
-                  key={`choice-${idx}`}
-                  color={this.colors[idx]}
-                  shape={this.shapes[idx]}
-                  value={c}
-                  onClick={() => this.handleChoiceClick(c)} />
-            ))}
+        <div className="Game">
+          <div className="Streak-Meter">
+            <StreakMeter streak={streak} />
           </div>
-        </div>
-        {/* Coin section */}
-        <div className="Coin-Container">
-          <p>{userEarnings}</p>
-          <img src="/images/coin.jpg" alt="Coin icon" className="Coins" />
+          <div className="Game-Problem">
+            <p>{problem.question} = </p>
+            <input
+                type="text"
+                onKeyUp={e =>
+                  this.handleInput(e.target.value)
+                } />
+            <button onClick={this.handleSubmit}>Enter</button>
+            <div className="Choice-Container">
+              {problem.choices.map((c, idx) => (
+                <Choice
+                    key={`choice-${idx}`}
+                    color={this.colors[idx]}
+                    shape={this.shapes[idx]}
+                    value={c}
+                    onClick={() => this.handleChoiceClick(c)} />
+              ))}
+            </div>
+          </div>
+          {/* Coin section */}
+          <div className="Coin-Container">
+            <p>{userEarnings}</p>
+            <img src="/images/coin.jpg" alt="Coin icon" className="Coins" />
+          </div>
         </div>
       </div>
     );
