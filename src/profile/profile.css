@@ -1,0 +1,9 @@
+.Badges-Container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Badges-Container > .Badge-Wrapper {
+  margin: 15px;
+}

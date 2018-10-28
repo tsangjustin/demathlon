@@ -1,26 +1,39 @@
 import React, { Component } from "react";
 
+import { Badge } from "../badge/index.jsx";
+import {
+  BASIC_MATH,
+  MATH_NINJA,
+  INTEGRAL,
+  MATH_AWESOME,
+  NUMBER_ONE,
+} from "../badge/badges.json"
+
+import "./profile.css"
+
 export class Profile extends Component {
   render() {
+    const { showModal } = this.props;
     const username = localStorage.getItem("name") || "Justin";
-    const badges = localStorage.getItem("badges") || [];
+    const badges = localStorage.getItem("badges") || [
+      BASIC_MATH,
+      MATH_NINJA,
+    ];
     const coins = localStorage.getItem("coins") || 0;
     return (
       <div>
         <p>{username}</p>
         <p>Badges</p>
-        <div>
+        <div className="Badges-Container">
           {badges.map((badge, idx) => {
             return (
-              <div key={idx}>
-                <img src={badge} alt="Badge" />
-              </div>
+              <Badge badge={badge} key={idx} />
             );
           })}
         </div>
         <div>
-          <o>Coins: {coins}</o>
-          <button>Redeem badges</button>
+          <p>Coins: {coins}</p>
+          <button onClick={showModal}>Redeem badges</button>
         </div>
       </div>
     );

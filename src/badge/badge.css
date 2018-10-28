@@ -1,0 +1,6 @@
+.Badge {
+  height: 75px;
+  width: 85px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
