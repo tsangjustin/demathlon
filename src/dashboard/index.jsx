@@ -49,7 +49,7 @@ export class DashboardPage extends Component {
       <div className="Game-Panel">
         <p>Games</p>
         <div className="Games-Container">
-          <Link to={`/game`}>
+          <Link to={`/game/basic_math`}>
             <GameTab
                 difficulty="Easy"
                 gameText="Basic Math"

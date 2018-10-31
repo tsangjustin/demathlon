@@ -19,6 +19,10 @@ class App extends Component {
             exact
             path="/game"
             component={GamePage} />
+          <Route
+            exact
+            path="/game/:game_type"
+            component={GamePage} />
           <Redirect from="*" to="/app" />
         </Switch>
       </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
+import { BASIC_MATH } from "./games.json";
 import { Choice } from "../choice";
 import { StreakMeter } from "../streak-meter";
 
@@ -9,6 +10,14 @@ import "./game.css"
 export class GamePage extends Component {
   constructor(props) {
     super(props);
+    const url_params = (props.match || {}).params;
+    let game_type = undefined;
+    if (url_params) {
+      game_type = url_params.game_type;
+    }
+    const problems = this.getGameTypeProblems(game_type);
+
+    this.getGameTypeProblems = this.getGameTypeProblems.bind(this);
     this.handleChoiceClick = this.handleChoiceClick.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,21 +26,9 @@ export class GamePage extends Component {
       streak: 0,
       curr_problem: 0,
       userEarnings: Number(localStorage.getItem("coins")) || 0,
+      problems: problems,
     };
   }
-
-  problems = [
-    {
-      question: "1 + 1",
-      answer: 2,
-      choices: [11, 1, 2, 4],
-    },
-    {
-      question: "7 * 4",
-      answer: 28,
-      choices: [28, 32, 47, 74],
-    },
-  ];
 
   colors = [
     "#EED6D6",
@@ -47,8 +44,15 @@ export class GamePage extends Component {
     "Circle",
   ];
 
+  getGameTypeProblems(game_type) {
+    if (game_type == "basic_math") {
+      return BASIC_MATH;
+    } else {
+      throw Error("Invalid game type");
+    }
+  }
+
   handleChoiceClick(choice) {
-    console.log(choice);
     this.setState({
       userChoice: choice,
     }, this.handleSubmit);
@@ -61,14 +65,20 @@ export class GamePage extends Component {
   }
 
   handleSubmit() {
-    const { curr_problem, streak, userChoice, userEarnings } = this.state;
+    const {
+      curr_problem,
+      problems,
+      streak,
+      userChoice,
+      userEarnings,
+    } = this.state;
     // Check if correct
-    const problem = this.problems[curr_problem];
+    const problem = problems[curr_problem];
     const correct_answer = problem.answer;
     if (userChoice == correct_answer) {
       this.setState({
         streak: streak + 1,
-        curr_problem: (curr_problem + 1) % this.problems.length,
+        curr_problem: (curr_problem + 1) % problems.length,
         userEarnings: userEarnings + 3,
       }, () => {
         localStorage.setItem("coins", this.state.userEarnings);
@@ -76,15 +86,14 @@ export class GamePage extends Component {
     } else {
       this.setState({
         streak: 0,
-        curr_problem: (curr_problem + 1) % this.problems.length,
+        curr_problem: (curr_problem + 1) % problems.length,
       });
     }
   }
 
   render() {
-    const { curr_problem, streak, userEarnings } = this.state;
-
-    const problem = this.problems[curr_problem];
+    const { curr_problem, problems, streak, userEarnings } = this.state;
+    const problem = problems[curr_problem];
 
     return (
       <div className="GamePage">
