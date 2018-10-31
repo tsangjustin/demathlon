@@ -29,7 +29,7 @@ export class Choice extends Component {
   }
 
   render() {
-    const { color, onClick, shape, value } = this.props;
+    const { onClick, value } = this.props;
     return (
       <div
           className="Choice"

@@ -63,6 +63,23 @@
 
 .User-Input {
   display: flex;
+  flex-direction: row;
+}
+
+.User-Input * {
+  margin-right: 10px;
+}
+
+.User-Input button {
+  height: 56px;
+  width: 75px;
+  background-color: #61F780;
+}
+
+.User-Input input {
+  height: 50px;
+  width: 100px;
+  font-size: 1.5em;
 }
 
 .Choice-Container {

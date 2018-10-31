@@ -41,6 +41,7 @@ export class GamePage extends Component {
     "#DC267F",
     "#FE6100",
     "#FFB000",
+    "#61F780", //Green
   ];
 
   shapes = [
