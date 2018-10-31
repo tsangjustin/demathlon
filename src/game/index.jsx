@@ -100,13 +100,18 @@ export class GamePage extends Component {
   }
 
   renderProblem(problem) {
+    let problemChildren = [];
     if (problem.question) {
-      return (
+      problemChildren.push(
         <p dangerouslySetInnerHTML={{ __html: `${problem.question} = ` }}></p>
       );
-    } else {
-      return null;
+    } 
+    if (problem.image) {
+      problemChildren.push(
+        <img src={problem.image} alt="Problem" />
+      );
     }
+    return problemChildren;
   }
 
   render() {
