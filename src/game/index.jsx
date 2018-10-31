@@ -36,10 +36,11 @@ export class GamePage extends Component {
   }
 
   colors = [
-    "#EED6D6",
-    "#6FFF98",
-    "#FAFCAF",
-    "#44DCE5",
+    "#648FFF",
+    "#785EF0",
+    "#DC267F",
+    "#FE6100",
+    "#FFB000",
   ];
 
   shapes = [
@@ -139,15 +140,17 @@ export class GamePage extends Component {
             <StreakMeter streak={streak} />
           </div>
           <div className="Game-Problem">
-            <div>
+            <div className="Problem-Container">
               {this.renderProblem(problem)}
-              <input
-                  type="text"
-                  onChange={e =>
-                    this.handleInput(e.target.value)
-                  }
-                  value={userChoice} />
-              <button onClick={this.handleSubmit}>Enter</button>
+              <div className="User-Input">
+                <input
+                    type="text"
+                    onChange={e =>
+                      this.handleInput(e.target.value)
+                    }
+                    value={userChoice} />
+                <button onClick={this.handleSubmit}>Enter</button>
+              </div>
             </div>
             <div className="Choice-Container">
               {problem.choices.map((c, idx) => (

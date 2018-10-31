@@ -51,6 +51,20 @@
   margin-bottom: 20px;
 }
 
+.Problem-Container > * {
+  display: flex;
+  flex-direction: column;
+}
+
+.Problem-Container img {
+  height: 200px;
+  width: 200px;
+}
+
+.User-Input {
+  display: flex;
+}
+
 .Choice-Container {
   display: flex;
 }

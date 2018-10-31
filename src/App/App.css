@@ -21,3 +21,27 @@
     transform: rotate(360deg);
   }
 }
+
+.Blue {
+  background-color: #648FFF;
+  color: #648FFF;
+}
+
+.Purple {
+  color: #785EF0;
+  background-color: #785EF0;
+}
+
+.Pink {
+  background-color: #DC267F;
+}
+
+.Orange {
+  color: #FE6100;
+  background-color: #FE6100;
+}
+
+.Yellow {
+  color: #FFB000;
+  background-color: #FFB000;
+}
