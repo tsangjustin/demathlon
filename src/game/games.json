@@ -1,27 +1,27 @@
 {
   "BASIC_MATH": [
     {
-      "question": "1 + 1",
+      "question": "1 &#43; 1",
       "answer": 2,
       "choices": [11, 1, 2, 4]
     },
     {
-      "question": "100 + 0",
+      "question": "100 &#43; 0",
       "answer": 100,
       "choices": [10, 1000, 101, 100]
     },
     {
-      "question": "10 - 1",
+      "question": "10 &#8722; 1",
       "answer": 9,
       "choices": [10, 9, 11, 101]
     },
     {
-      "question": "7 * 4",
+      "question": "7 &#215; 4",
       "answer": 28,
       "choices": [28, 32, 47, 74]
     },
     {
-      "question": "8 / 2",
+      "question": "8 &#247; 2",
       "answer": 4,
       "choices": [4, 82, 8, 3]
     },
@@ -30,5 +30,37 @@
       "answer": 4,
       "choices": [4, 2, 1, 5]
     }
+  ],
+  "PRE_ALGEBRA": [
+    {
+      "question": "&radic;4",
+      "answer": 2,
+      "choices": [2, 1, 16, 4]
+    },
+    {
+      "question": "2<sup>3</sup>",
+      "answer": 8,
+      "choices": [16, 4, 8, 9]
+    },
+    {
+      "question": "9<sup>1</sup>",
+      "answer": 9,
+      "choices": [9, 18, 1, 81]
+    },
+    {
+      "question": "2<sup>-1</sup>",
+      "answer": "<sup>1</sup>&frasl;<sub>2</sub>",
+      "choices": [
+        "<sup>1</sup>&frasl;<sub>4</sub>",
+        "2",
+        "<sup>1</sup>&frasl;<sub>8</sub>",
+        "<sup>1</sup>&frasl;<sub>2</sub>"]
+    }
+  ],
+  "GEOMETRY": [
+    
+  ],
+  "ALGEBRA": [
+    
   ]
 }

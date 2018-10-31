@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
-import { BASIC_MATH } from "./games.json";
+import {
+  BASIC_MATH,
+  PRE_ALGEBRA,
+} from "./games.json";
 import { Choice } from "../choice";
 import { StreakMeter } from "../streak-meter";
 
@@ -21,8 +24,9 @@ export class GamePage extends Component {
     this.handleChoiceClick = this.handleChoiceClick.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderProblem = this.renderProblem.bind(this);
     this.state = {
-      userChoice: undefined,
+      userChoice: "",
       streak: 0,
       curr_problem: 0,
       userEarnings: Number(localStorage.getItem("coins")) || 0,
@@ -47,6 +51,8 @@ export class GamePage extends Component {
   getGameTypeProblems(game_type) {
     if (game_type == "basic_math") {
       return BASIC_MATH;
+    } else if (game_type === "pre_algebra") {
+      return PRE_ALGEBRA;
     } else {
       throw Error("Invalid game type");
     }
@@ -79,6 +85,7 @@ export class GamePage extends Component {
       this.setState({
         streak: streak + 1,
         curr_problem: (curr_problem + 1) % problems.length,
+        userChoice: "",
         userEarnings: userEarnings + 3,
       }, () => {
         localStorage.setItem("coins", this.state.userEarnings);
@@ -87,12 +94,29 @@ export class GamePage extends Component {
       this.setState({
         streak: 0,
         curr_problem: (curr_problem + 1) % problems.length,
+        userChoice: "",
       });
     }
   }
 
+  renderProblem(problem) {
+    if (problem.question) {
+      return (
+        <p dangerouslySetInnerHTML={{ __html: `${problem.question} = ` }}></p>
+      );
+    } else {
+      return null;
+    }
+  }
+
   render() {
-    const { curr_problem, problems, streak, userEarnings } = this.state;
+    const {
+      curr_problem,
+      problems,
+      streak,
+      userChoice,
+      userEarnings,
+    } = this.state;
     const problem = problems[curr_problem];
 
     return (
@@ -108,12 +132,13 @@ export class GamePage extends Component {
           </div>
           <div className="Game-Problem">
             <div>
-              <p>{problem.question} = </p>
+              {this.renderProblem(problem)}
               <input
                   type="text"
-                  onKeyUp={e =>
+                  onChange={e =>
                     this.handleInput(e.target.value)
-                  } />
+                  }
+                  value={userChoice} />
               <button onClick={this.handleSubmit}>Enter</button>
             </div>
             <div className="Choice-Container">

@@ -35,7 +35,7 @@ export class Choice extends Component {
           className="Choice"
           onClick={onClick}>
         {this.renderShape()}
-          <p className="Choice-Text">{value}</p>
+          <p className="Choice-Text" dangerouslySetInnerHTML={{ __html: value }}></p>
       </div>
     );
   }
