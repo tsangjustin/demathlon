@@ -122,7 +122,7 @@ export class DashboardPage extends Component {
         <div className="Badge-Store-Wrapper">
           {badges.map((badge, idx) => {
             return (
-              <div className="" key={idx}>
+              <div className="Badge-Wrapper" key={idx}>
                 <Badge badge={badge} />
                 <div className="Cost-Wrapper">
                   <p>25</p>
