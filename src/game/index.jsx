@@ -87,7 +87,7 @@ export class GamePage extends Component {
     const problem = this.problems[curr_problem];
 
     return (
-      <div>
+      <div className="GamePage">
         <div className="NavBar">
           <Link to="/app">
             <i className="fas fa-arrow-left left-arrow"></i>
@@ -98,13 +98,15 @@ export class GamePage extends Component {
             <StreakMeter streak={streak} />
           </div>
           <div className="Game-Problem">
-            <p>{problem.question} = </p>
-            <input
-                type="text"
-                onKeyUp={e =>
-                  this.handleInput(e.target.value)
-                } />
-            <button onClick={this.handleSubmit}>Enter</button>
+            <div>
+              <p>{problem.question} = </p>
+              <input
+                  type="text"
+                  onKeyUp={e =>
+                    this.handleInput(e.target.value)
+                  } />
+              <button onClick={this.handleSubmit}>Enter</button>
+            </div>
             <div className="Choice-Container">
               {problem.choices.map((c, idx) => (
                 <Choice
