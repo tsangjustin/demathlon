@@ -131,16 +131,21 @@ export class DashboardPage extends Component {
   render() {
     const { showBadgeStore } = this.state;
     return (
-      <div className="Dashboard-Page">
-        {/* <Modal
-            content={content}
-            showModal={showModal}
-            handleClose={this.handleCloseModal} /> */}
-        <div className="Profile-Panel">
-          <Profile showModal={this.handleShowModal} />
+      <div className="Dashboard-Wrapper">
+        <div className="NavBar">
+          <p>DeMathlon</p>
         </div>
-        {showBadgeStore ? this.renderBadgeStore() : this.renderGames()}
-        <div className="Leaderboard-Panel">
+        <div className="Dashboard-Page">
+          {/* <Modal
+              content={content}
+              showModal={showModal}
+              handleClose={this.handleCloseModal} /> */}
+          <div className="Profile-Panel">
+            <Profile showModal={this.handleShowModal} />
+          </div>
+          {showBadgeStore ? this.renderBadgeStore() : this.renderGames()}
+          <div className="Leaderboard-Panel">
+          </div>
         </div>
       </div>
     ); 
