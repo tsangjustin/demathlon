@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Badge } from "../badge";
 import { GameTab } from "../game-tab";
-import { Modal } from "../modal";
+import { Leaderboard } from "../leaderboard";
 import { Profile } from "../profile";
 import {
   BASIC_MATH,
@@ -23,9 +23,13 @@ export class DashboardPage extends Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.renderBadgeStore = this.renderBadgeStore.bind(this);
     this.renderGames = this.renderGames.bind(this);
+    const badges = JSON.parse(localStorage.getItem("badges")) || [];
+    const coins = Number(localStorage.getItem("coins")) || 0;
     this.state = {
       content: null,
       showBadgeStore: false,
+      badges: badges,
+      coins: coins,
     };
   }
 
@@ -42,7 +46,21 @@ export class DashboardPage extends Component {
       showBadgeStore: false,
     });
   }
-  
+
+  handlePurchaseBadge(badge, cost) {
+    const alreadyOwn = JSON.parse(localStorage.getItem("badges")) || [];
+    const coins = Number(localStorage.getItem("coins")) || 0;
+    if (coins >= cost) {
+      const newBadges = alreadyOwn.concat(badge);
+      const newCoins = coins - cost;
+      localStorage.setItem("badges", JSON.stringify(newBadges));
+      localStorage.setItem("coins", newCoins);
+      this.setState({
+        badges: newBadges,
+        coins: newCoins,
+      });
+    }
+  }
 
   renderGames() {
     return (
@@ -92,10 +110,7 @@ export class DashboardPage extends Component {
       MATH_AWESOME,
       NUMBER_ONE,
     ];
-    const alreadyOwn = localStorage.getItem("badges") || [
-      BASIC_MATH,
-      MATH_NINJA,
-    ];
+    const alreadyOwn = localStorage.getItem("badges") || [];
     return (
       <div className="Game-Panel">
         <p
@@ -117,8 +132,10 @@ export class DashboardPage extends Component {
                       alt="Coin" />
                 </div>
                 {alreadyOwn.includes(badge)
-                  ? <button>Own</button>
-                  : <button>Purchase</button>
+                  ? <button className="Own">Own</button>
+                  : <button
+                      className="Purchase"
+                      onClick={() => this.handlePurchaseBadge(badge, 25)}>Purchase</button>
                 }
               </div>
             )
@@ -129,7 +146,7 @@ export class DashboardPage extends Component {
   }
 
   render() {
-    const { showBadgeStore } = this.state;
+    const { badges, coins, showBadgeStore } = this.state;
     return (
       <div className="Dashboard-Wrapper">
         <div className="NavBar">
@@ -141,10 +158,14 @@ export class DashboardPage extends Component {
               showModal={showModal}
               handleClose={this.handleCloseModal} /> */}
           <div className="Profile-Panel">
-            <Profile showModal={this.handleShowModal} />
+            <Profile
+                showModal={this.handleShowModal}
+                badges={badges}
+                coins={coins} />
           </div>
           {showBadgeStore ? this.renderBadgeStore() : this.renderGames()}
           <div className="Leaderboard-Panel">
+              <Leaderboard />
           </div>
         </div>
       </div>

@@ -13,13 +13,8 @@ import "./profile.css"
 
 export class Profile extends Component {
   render() {
-    const { showModal } = this.props;
+    const { badges, coins, showModal } = this.props;
     const username = localStorage.getItem("name") || "Justin";
-    const badges = localStorage.getItem("badges") || [
-      BASIC_MATH,
-      MATH_NINJA,
-    ];
-    const coins = localStorage.getItem("coins") || 0;
     return (
       <div>
         <p>{username}</p>
