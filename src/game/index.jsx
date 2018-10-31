@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import {
   BASIC_MATH,
   PRE_ALGEBRA,
+  GEOMETRY,
 } from "./games.json";
 import { Choice } from "../choice";
 import { StreakMeter } from "../streak-meter";
@@ -53,6 +54,8 @@ export class GamePage extends Component {
       return BASIC_MATH;
     } else if (game_type === "pre_algebra") {
       return PRE_ALGEBRA;
+    } else if (game_type === "geometry") {
+      return GEOMETRY;
     } else {
       throw Error("Invalid game type");
     }

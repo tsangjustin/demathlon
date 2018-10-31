@@ -58,6 +58,12 @@
     }
   ],
   "GEOMETRY": [
+    {
+      "question": "Find the hypotenuse for this triangle",
+      "image": "/images/geometry_question_1.png",
+      "answer": 5,
+      "choices": [3, 4, 12, 5]
+    }
   ],
   "ALGEBRA": [
   ]

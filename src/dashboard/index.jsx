@@ -79,10 +79,10 @@ export class DashboardPage extends Component {
                 gameText="Pre Algebra"
                 img_path="images/pre_algebra.jpg" />
           </Link>
-          <Link to={`/game`}>
+          <Link to={`/game/geometry`}>
             <GameTab
-                difficulty="Easy"
-                gameText="Basic Math"
+                difficulty="Medium"
+                gameText="Geometry"
                 img_path="images/math_operator.png" />
           </Link>
           <Link to={`/game`}>
