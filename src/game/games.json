@@ -66,5 +66,15 @@
     }
   ],
   "ALGEBRA": [
+  ],
+  "COUNTING_MATH": [
+    {
+      "question": "Which tree has more apples?",
+      "answer": "<img class='Choice-Image' src='/images/count_math/choice_1.png' />",
+      "choices": [
+        "<img class='Choice-Image' src='/images/count_math/choice_1.png' />",
+        "<img class='Choice-Image' src='/images/count_math/choice_2.png' />"
+      ]
+    }
   ]
 }

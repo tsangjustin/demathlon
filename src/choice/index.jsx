@@ -9,20 +9,23 @@ export class Choice extends Component {
   }
 
   renderShape() {
-    const { color, shape } = this.props;
+    const { color, shape, value } = this.props;
     let shapeStyle = {};
-    if (shape === "Triangle" || shape === "Trapezoid") {
-      shapeStyle = {
-        borderBottomColor: color,
-      };
-    } else {
-      shapeStyle = {
-        backgroundColor: color,
-      };
+    var isImage = value.match(/img/g);
+    if (!isImage) {
+      if (shape === "Triangle" || shape === "Trapezoid") {
+        shapeStyle = {
+          borderBottomColor: color,
+        };
+      } else {
+        shapeStyle = {
+          backgroundColor: color,
+        };
+      }
     }
     return (
       <div
-          className={`Shape ${shape}`}
+          className={`Shape ${!isImage && shape}`}
           style={shapeStyle}>
       </div>
     );
@@ -30,13 +33,23 @@ export class Choice extends Component {
 
   render() {
     const { onClick, value } = this.props;
-    return (
-      <div
-          className="Choice"
-          onClick={onClick}>
-        {this.renderShape()}
-          <p className="Choice-Text" dangerouslySetInnerHTML={{ __html: value }}></p>
-      </div>
-    );
+    var isImage = value.match(/img/g);
+    if (isImage) {
+      return (
+        <div
+            className="Choice"
+            onClick={onClick}
+            dangerouslySetInnerHTML={isImage && { __html: value }} />
+      );
+    } else {
+      return (
+        <div
+            className="Choice"
+            onClick={onClick}>
+            {this.renderShape()}
+            <p className="Choice-Text" dangerouslySetInnerHTML={{ __html: value }}></p>
+        </div>
+      );
+    }
   }
 }

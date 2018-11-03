@@ -5,6 +5,7 @@ import {
   BASIC_MATH,
   PRE_ALGEBRA,
   GEOMETRY,
+  COUNTING_MATH,
 } from "./games.json";
 import { Choice } from "../choice";
 import { StreakMeter } from "../streak-meter";
@@ -58,6 +59,8 @@ export class GamePage extends Component {
       return PRE_ALGEBRA;
     } else if (game_type === "geometry") {
       return GEOMETRY;
+    } else if (game_type === "counting_math") {
+      return COUNTING_MATH;
     } else {
       throw Error("Invalid game type");
     }
