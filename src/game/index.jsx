@@ -161,7 +161,7 @@ export class GamePage extends Component {
     const resultImage = isCorrect ? "/images/correct.jpg" : "/images/wrong.png";
     return (
       <img
-          className="Question-Result"
+          className="animated fadeIn Question-Result"
           src={resultImage}
           alt="Question result" />
     );
