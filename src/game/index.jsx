@@ -22,17 +22,23 @@ export class GamePage extends Component {
     }
     const problems = this.getGameTypeProblems(game_type);
 
+    this.animateUserEarning = this.animateUserEarning.bind(this);
+    this.animateResult = this.animateResult.bind(this);
     this.getGameTypeProblems = this.getGameTypeProblems.bind(this);
     this.handleChoiceClick = this.handleChoiceClick.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderProblem = this.renderProblem.bind(this);
+    this.renderResult = this.renderResult.bind(this);
     this.state = {
       userChoice: "",
       streak: 0,
       curr_problem: 0,
       userEarnings: Number(localStorage.getItem("coins")) || 0,
       problems: problems,
+
+      showResult: false,
+      isCorrect: undefined,
     };
   }
 
@@ -78,30 +84,58 @@ export class GamePage extends Component {
     });
   }
 
+  animateUserEarning(x) {
+    if (x > 0) {
+      setTimeout(() => {
+        const { userEarnings } = this.state;
+        this.setState({
+          userEarnings: userEarnings + 1
+        }, () => this.animateUserEarning(x - 1));
+      }, 100);
+    }
+  }
+
+  animateResult(isCorrect) {
+    const { curr_problem, problems } = this.state;
+    this.setState({
+      showResult: true,
+      isCorrect: isCorrect,
+    }, () => {
+      setTimeout(() => {
+        this.setState({
+          curr_problem: (curr_problem + 1) % problems.length,
+          showResult: false,
+          isCorrect: undefined,
+        });
+      }, 2000);
+    });
+  }
+
+
   handleSubmit() {
     const {
       curr_problem,
       problems,
       streak,
       userChoice,
-      userEarnings,
     } = this.state;
     // Check if correct
     const problem = problems[curr_problem];
     const correct_answer = problem.answer;
     if (userChoice == correct_answer) {
+      // Animate the userEarnings
+      this.animateUserEarning(3);
+      this.animateResult(true);
       this.setState({
         streak: streak + 1,
-        curr_problem: (curr_problem + 1) % problems.length,
         userChoice: "",
-        userEarnings: userEarnings + 3,
       }, () => {
         localStorage.setItem("coins", this.state.userEarnings);
       });
     } else {
+      this.animateResult(false);
       this.setState({
         streak: 0,
-        curr_problem: (curr_problem + 1) % problems.length,
         userChoice: "",
       });
     }
@@ -122,10 +156,22 @@ export class GamePage extends Component {
     return problemChildren;
   }
 
+  renderResult() {
+    const { isCorrect } = this.state;
+    const resultImage = isCorrect ? "/images/correct.jpg" : "/images/wrong.png";
+    return (
+      <img
+          className="Question-Result"
+          src={resultImage}
+          alt="Question result" />
+    );
+  }
+
   render() {
     const {
       curr_problem,
       problems,
+      showResult,
       streak,
       userChoice,
       userEarnings,
@@ -156,16 +202,19 @@ export class GamePage extends Component {
                 <button onClick={this.handleSubmit}>Enter</button>
               </div>
             </div>
-            <div className="Choice-Container">
-              {problem.choices.map((c, idx) => (
-                <Choice
-                    key={`choice-${idx}`}
-                    color={this.colors[idx]}
-                    shape={this.shapes[idx]}
-                    value={c}
-                    onClick={() => this.handleChoiceClick(c)} />
-              ))}
-            </div>
+            {showResult
+              ? this.renderResult()
+              : <div className="Choice-Container">
+                  {problem.choices.map((c, idx) => (
+                    <Choice
+                        key={`choice-${idx}`}
+                        color={this.colors[idx]}
+                        shape={this.shapes[idx]}
+                        value={c}
+                        onClick={() => this.handleChoiceClick(c)} />
+                  ))}
+                </div>
+            }
           </div>
           {/* Coin section */}
           <div className="Coin-Container">
