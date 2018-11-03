@@ -11,7 +11,7 @@ export class Choice extends Component {
   renderShape() {
     const { color, shape, value } = this.props;
     let shapeStyle = {};
-    var isImage = value.match(/img/g);
+    var isImage = typeof(value) === "string" && value.match(/img/g);
     if (!isImage) {
       if (shape === "Triangle" || shape === "Trapezoid") {
         shapeStyle = {
@@ -33,7 +33,7 @@ export class Choice extends Component {
 
   render() {
     const { onClick, value } = this.props;
-    var isImage = value.match(/img/g);
+    var isImage = typeof(value) === "string" && value.match(/img/g);
     if (isImage) {
       return (
         <div

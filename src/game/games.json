@@ -70,10 +70,21 @@
   "COUNTING_MATH": [
     {
       "question": "Which tree has more apples?",
-      "answer": "<img class='Choice-Image' src='/images/count_math/choice_1.png' />",
+      "answer": "<p>a) </p><img class='Choice-Image' src='/images/count_math/choice_1.png' />",
       "choices": [
-        "<img class='Choice-Image' src='/images/count_math/choice_1.png' />",
-        "<img class='Choice-Image' src='/images/count_math/choice_2.png' />"
+        "<p>a) </p><img class='Choice-Image' src='/images/count_math/choice_1.png' />",
+        "<p>b) </p><img class='Choice-Image' src='/images/count_math/choice_2.png' />"
+      ]
+    },
+    {
+      "question": "How many apples?",
+      "image": "/images/count_math/apples.png",
+      "answer": 3,
+      "choices": [
+        1,
+        2,
+        3,
+        4
       ]
     }
   ]
