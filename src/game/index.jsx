@@ -193,6 +193,7 @@ export class GamePage extends Component {
     } = this.state;
     const problem = problems[curr_problem];
 
+    // TODO (justint): Add encouraging word to continue playing
     return (
       <div className="GamePage">
         <div className="NavBar">

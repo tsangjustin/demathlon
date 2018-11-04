@@ -22,7 +22,9 @@ export class Profile extends Component {
         <div className="Badges-Container">
           {badges.map((badge, idx) => {
             return (
-              <Badge badge={badge} key={idx} />
+              <Badge
+                  badge={badge}
+                  key={`profile-badge-${idx}`} />
             );
           })}
         </div>
