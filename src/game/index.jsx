@@ -213,7 +213,9 @@ export class GamePage extends Component {
                       this.handleInput(e.target.value)
                     }
                     value={userChoice} />
-                <button onClick={this.handleSubmit}>Enter</button>
+                <button
+                    disabled={showResult} 
+                    onClick={this.handleSubmit}>Enter</button>
               </div>
             </div>
             {showResult
