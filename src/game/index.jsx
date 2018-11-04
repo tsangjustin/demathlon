@@ -8,6 +8,7 @@ import {
   COUNTING_MATH,
 } from "./games.json";
 import { Choice } from "../choice";
+import { ProgressBar } from '../progress-bar';
 import { StreakMeter } from "../streak-meter";
 
 import "./game.css"
@@ -231,10 +232,13 @@ export class GamePage extends Component {
                   ))}
                 </div>
             }
-            <div className="Game-Info">
-              <p>Answered: {answered}</p>
-              <p>Correct: {correct}</p>
-              <p>Streak: {streak}</p>
+            <div className="Game-Info-Wrapper">
+              <div className="Game-Info">
+                <p>Answered: {answered}</p>
+                <p>Correct: {correct}</p>
+                <p>Streak: {streak}</p>
+              </div>
+              <ProgressBar current={curr_problem} total={problems.length} />
             </div>
           </div>
           {/* Coin section */}
