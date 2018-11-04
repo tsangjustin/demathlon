@@ -65,7 +65,7 @@ export class DashboardPage extends Component {
   renderGames() {
     return (
       <div className="Game-Panel">
-        <p>Games</p>
+        <p className="Title">Games</p>
         <div className="Games-Container">
           <Link to={`/game/basic_math`}>
             <GameTab
@@ -113,28 +113,28 @@ export class DashboardPage extends Component {
     const alreadyOwn = localStorage.getItem("badges") || [];
     return (
       <div className="Game-Panel">
-        <p
+        <span
             className="closebtn"
             onClick={this.handleCloseModal}>
           &times;
-        </p>
-        <p>Badge Store</p>
+        </span>
+        <p className="Title">Badge Store</p>
         <div className="Badge-Store-Wrapper">
           {badges.map((badge, idx) => {
             return (
               <div className="Badge-Wrapper" key={idx}>
                 <Badge badge={badge} />
                 <div className="Cost-Wrapper">
-                  <p>25</p>
+                  <p>50</p>
                   <img
                       className="Store-Coins"
                       src="/images/coin.jpg"
                       alt="Coin" />
                 </div>
                 {alreadyOwn.includes(badge)
-                  ? <button className="Own">Own</button>
+                  ? <button className="btn Own">Own</button>
                   : <button
-                      className="Purchase"
+                      className="btn Purchase"
                       onClick={() => this.handlePurchaseBadge(badge, 25)}>Purchase</button>
                 }
               </div>

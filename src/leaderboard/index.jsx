@@ -7,8 +7,8 @@ export class Leaderboard extends Component {
     ];
     return (
       <div>
-        <p>Leaderboard</p>
-        
+        <p className="Title">Leaderboard</p>
+
       </div>
     );
   }

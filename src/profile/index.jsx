@@ -17,8 +17,8 @@ export class Profile extends Component {
     const username = localStorage.getItem("name") || "Justin";
     return (
       <div>
-        <p>{username}</p>
-        <p>Badges</p>
+        <p className="Title">{username}</p>
+        <p className="Title">Badges</p>
         <div className="Badges-Container">
           {badges.map((badge, idx) => {
             return (
@@ -26,9 +26,12 @@ export class Profile extends Component {
             );
           })}
         </div>
-        <div>
-          <p>Coins: {coins}</p>
-          <button onClick={showModal}>Redeem badges</button>
+        <div className="Redeem-Badge-Container">
+          <div className="User-Coins-Container">
+            <p>{coins}</p>
+            <img src="/images/coin.jpg" alt="Coins" />
+          </div>
+          <button className="btn redeem-button" onClick={showModal}>Redeem badges</button>
         </div>
       </div>
     );

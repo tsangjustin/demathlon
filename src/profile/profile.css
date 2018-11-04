@@ -7,3 +7,28 @@
 .Badges-Container > .Badge-Wrapper {
   margin: 15px;
 }
+
+.Redeem-Badge-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Redeem-Badge-Container button {
+
+}
+
+.User-Coins-Container {
+  display: flex;
+  flex-direction: row;
+}
+
+.User-Coins-Container > img {
+  height: 25px;
+  width: 25px;
+}
+
+.redeem-button {
+  background-color: #6FEF89;
+}
