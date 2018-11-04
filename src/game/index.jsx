@@ -128,6 +128,8 @@ export class GamePage extends Component {
     const problem = problems[curr_problem];
     const correct_answer = problem.answer;
     if (userChoice == correct_answer) {
+      let audio = new Audio("/audio/Coin_Drop.mp3");
+      audio.play();
       // Animate the userEarnings
       this.animateUserEarning(3);
       this.animateResult(true);
