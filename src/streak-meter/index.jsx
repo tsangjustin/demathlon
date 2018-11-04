@@ -6,6 +6,7 @@ export class StreakMeter extends React.Component {
   constructor(props) {
     super(props);
     this.change_bar_color = this.change_bar_color.bind(this);
+    this.getStreakAnimation = this.getStreakAnimation.bind(this);
   }
 
   change_bar_color() {
@@ -23,10 +24,25 @@ export class StreakMeter extends React.Component {
     }
   }
 
+  getStreakAnimation() {
+    const { streak } = this.props;
+    if (streak < 5) {
+      return "";
+    } else if (streak < 10) {
+      return "shake-1";
+    } else if (streak < 15) {
+      return "shake-2";
+    } else if (streak < 20) {
+      return "shake-3";
+    } else {
+      return "shake-3";
+    }
+  }
+
   render() {
     const { streak } = this.props;
     return (
-      <div className="Meter-Container">
+      <div className={`Meter-Container ${streak >= 5 && `animated On-Fire ${this.getStreakAnimation()}`}`}>
         <img src="/images/thermometer.png" alt="Thermometer" />
         <svg className="Bar" width="18" height="235">
           <rect

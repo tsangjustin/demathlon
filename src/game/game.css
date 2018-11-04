@@ -108,3 +108,11 @@
   height: 200px;
   width: 200px;
 }
+
+.Game-Info {
+  display: flex;
+}
+
+.Game-Info > * {
+  margin-right: 10px;
+}

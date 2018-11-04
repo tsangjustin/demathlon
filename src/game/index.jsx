@@ -39,6 +39,9 @@ export class GamePage extends Component {
 
       showResult: false,
       isCorrect: undefined,
+
+      answered: 0,
+      correct: 0,
     };
   }
 
@@ -118,6 +121,8 @@ export class GamePage extends Component {
       problems,
       streak,
       userChoice,
+      answered,
+      correct,
     } = this.state;
     // Check if correct
     const problem = problems[curr_problem];
@@ -129,6 +134,8 @@ export class GamePage extends Component {
       this.setState({
         streak: streak + 1,
         userChoice: "",
+        answered: answered + 1,
+        correct: correct + 1,
       }, () => {
         localStorage.setItem("coins", this.state.userEarnings);
       });
@@ -137,6 +144,7 @@ export class GamePage extends Component {
       this.setState({
         streak: 0,
         userChoice: "",
+        answered: answered + 1,
       });
     }
   }
@@ -175,6 +183,8 @@ export class GamePage extends Component {
       streak,
       userChoice,
       userEarnings,
+      answered,
+      correct,
     } = this.state;
     const problem = problems[curr_problem];
 
@@ -215,6 +225,11 @@ export class GamePage extends Component {
                   ))}
                 </div>
             }
+            <div className="Game-Info">
+              <p>Answered: {answered}</p>
+              <p>Correct: {correct}</p>
+              <p>Streak: {streak}</p>
+            </div>
           </div>
           {/* Coin section */}
           <div className="Coin-Container">
