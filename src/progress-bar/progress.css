@@ -1,4 +1,9 @@
-.Game-Progress {
+#Game-Progress {
   height: 30px;
   width: 500px;
+}
+
+#Current-Progress {
+  color: #000000;
+  background-color: #26EF4F;
 }
