@@ -86,6 +86,31 @@
         3,
         4
       ]
+    },
+    {
+      "question": "Which number is greater? 5 or 8",
+      "answer": 8,
+      "choices": [
+        5,
+        8
+      ]
+    },
+    {
+      "question": "Is 5 < 8?",
+      "answer": "Yes",
+      "choices": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "question": "Who has more apple, John or Maria?",
+      "image": "/images/count_math/apple_count.png",
+      "answer": "John",
+      "choices": [
+        "John",
+        "Maria"
+      ]
     }
   ]
 }
