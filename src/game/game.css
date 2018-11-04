@@ -92,6 +92,12 @@
   right: 0px;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+}
+
+.User-Coins {
+  font-size: 1.5em;
+  margin: 0;
 }
 
 .Coins {

@@ -123,15 +123,17 @@ export class GamePage extends Component {
       userChoice,
       answered,
       correct,
+      userEarnings,
     } = this.state;
     // Check if correct
     const problem = problems[curr_problem];
     const correct_answer = problem.answer;
+    let coinEarn = 5;
     if (userChoice == correct_answer) {
       let audio = new Audio("/audio/Coin_Drop.mp3");
       audio.play();
       // Animate the userEarnings
-      this.animateUserEarning(3);
+      this.animateUserEarning(coinEarn);
       this.animateResult(true);
       this.setState({
         streak: streak + 1,
@@ -139,7 +141,7 @@ export class GamePage extends Component {
         answered: answered + 1,
         correct: correct + 1,
       }, () => {
-        localStorage.setItem("coins", this.state.userEarnings);
+        localStorage.setItem("coins", userEarnings + coinEarn);
       });
     } else {
       this.animateResult(false);
@@ -235,7 +237,7 @@ export class GamePage extends Component {
           </div>
           {/* Coin section */}
           <div className="Coin-Container">
-            <p>{userEarnings}</p>
+            <p className="User-Coins">{userEarnings}</p>
             <img src="/images/coin.jpg" alt="Coin icon" className="Coins" />
           </div>
         </div>
