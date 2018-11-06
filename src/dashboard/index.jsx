@@ -19,6 +19,9 @@ import {
   AWESOME,
   GREEN,
   BANANA,
+  PIKACHU,
+  CHECK,
+  THUMBS_UP,
 } from "../badge/badges.json";
 
 import "./dashboard.css"
@@ -138,6 +141,9 @@ export class DashboardPage extends Component {
       AWESOME,
       GREEN,
       BANANA,
+      PIKACHU,
+      CHECK,
+      THUMBS_UP,
     ];
     const cost = 50;
     const alreadyOwn = localStorage.getItem("badges") || [];

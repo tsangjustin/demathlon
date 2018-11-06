@@ -14,6 +14,9 @@ import {
   AWESOME,
   GREEN,
   BANANA,
+  PIKACHU,
+  CHECK,
+  THUMBS_UP,
 } from "./badges.json";
 
 import "./badge.css"
@@ -116,6 +119,27 @@ export class Badge extends Component {
             className="Badge"
             src="/images/animation/banana.gif"
             alt="Banana Gif"/>
+      );
+    } else if (badge === PIKACHU) {
+      return (
+        <img
+            className="Badge"
+            src="/images/animation/pikachu.gif"
+            alt="PIKACHU Gif"/>
+      );
+    } else if (badge === CHECK) {
+      return (
+        <img
+            className="Badge"
+            src="/images/animation/check.gif"
+            alt="Check Gif"/>
+      );
+    } else if (badge === THUMBS_UP) {
+      return (
+        <img
+            className="Badge"
+            src="/images/animation/thumbs_up.gif"
+            alt="thumbs_up Gif"/>
       );
     } else {
       return null;

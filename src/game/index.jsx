@@ -8,6 +8,9 @@ import {
   GREEN,
   CONGRATS,
   BANANA,
+  PIKACHU,
+  CHECK,
+  THUMBS_UP,
 } from "../badge/badges.json";
 import {
   BASIC_MATH,
@@ -193,6 +196,12 @@ export class GamePage extends Component {
       correct_animation = "/images/animation/green.gif"
     } else if (animationUsing === BANANA) {
       correct_animation = "/images/animation/banana.gif"
+    } else if (animationUsing === PIKACHU) {
+      correct_animation = "/images/animation/pikachu.gif"
+    } else if (animationUsing === CHECK) {
+      correct_animation = "/images/animation/check.gif"
+    } else if (animationUsing === THUMBS_UP) {
+      correct_animation = "/images/animation/thumbs_up.gif"
     } else {
       correct_animation = "/images/correct.jpg";
     }

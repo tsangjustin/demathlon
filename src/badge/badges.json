@@ -11,5 +11,8 @@
   "CONGRATS": 9,
   "AWESOME": 10,
   "GREEN": 11,
-  "BANANA": 12
+  "BANANA": 12,
+  "PIKACHU": 13,
+  "CHECK": 14,
+  "THUMBS_UP": 15
 }
