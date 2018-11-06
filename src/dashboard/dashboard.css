@@ -37,9 +37,19 @@
 
 .Badge-Store-Wrapper {
   display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.Badge-Container {
+  display: flex;
+  flex-direction: column;
+}
+
+.Badges-Wrapper {
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 15px;
 }
 
 .Badge-Store-Wrapper > * {

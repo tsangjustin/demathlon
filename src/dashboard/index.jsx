@@ -13,6 +13,8 @@ import {
   NUMBER_ONE,
   BLUE_TRIANGLE,
   ANGLE,
+  CORRECT,
+  YUP,
 } from "../badge/badges.json";
 
 import "./dashboard.css"
@@ -23,15 +25,18 @@ export class DashboardPage extends Component {
     super(props);
     this.handleShowModal = this.handleShowModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleUseCelebration = this.handleUseCelebration.bind(this);
     this.renderBadgeStore = this.renderBadgeStore.bind(this);
     this.renderGames = this.renderGames.bind(this);
     const badges = JSON.parse(localStorage.getItem("badges")) || [];
     const coins = Number(localStorage.getItem("coins")) || 0;
+    const animationgUsing = Number(localStorage.getItem("correct_animation")) || CORRECT;
     this.state = {
       content: null,
       showBadgeStore: false,
       badges: badges,
       coins: coins,
+      animationgUsing: animationgUsing,
     };
   }
 
@@ -62,6 +67,13 @@ export class DashboardPage extends Component {
         coins: newCoins,
       });
     }
+  }
+
+  handleUseCelebration(badge) {
+    localStorage.setItem("correct_animation", badge);
+    this.setState({
+      animationgUsing: badge,
+    });
   }
 
   renderGames() {
@@ -105,6 +117,7 @@ export class DashboardPage extends Component {
   }
 
   renderBadgeStore() {
+    const { animationgUsing } = this.state;
     const badges = [
       BASIC_MATH,
       MATH_NINJA,
@@ -114,6 +127,11 @@ export class DashboardPage extends Component {
       BLUE_TRIANGLE,
       ANGLE,
     ];
+    const animations = [
+      CORRECT,
+      YUP,
+    ];
+    const cost = 50;
     const alreadyOwn = localStorage.getItem("badges") || [];
     return (
       <div className="Game-Panel">
@@ -124,26 +142,61 @@ export class DashboardPage extends Component {
         </span>
         <p className="Title">Badge Store</p>
         <div className="Badge-Store-Wrapper">
-          {badges.map((badge, idx) => {
-            return (
-              <div className="Badge-Wrapper" key={`badge-${idx}`}>
-                <Badge badge={badge} />
-                <div className="Cost-Wrapper">
-                  <p>50</p>
-                  <img
-                      className="Store-Coins"
-                      src="/images/coin.jpg"
-                      alt="Coin" />
-                </div>
-                {alreadyOwn.includes(badge)
-                  ? <button className="btn Own">Own</button>
-                  : <button
-                      className="btn Purchase"
-                      onClick={() => this.handlePurchaseBadge(badge, 25)}>Purchase</button>
-                }
-              </div>
-            )
-          })}
+          <div className="Badge-Container">
+            <p>Badges</p>
+            <div className="Badges-Wrapper">
+              {badges.map((badge, idx) => {
+                return (
+                  <div className="Badge-Wrapper" key={`badge-${idx}`}>
+                    <Badge badge={badge} />
+                    <div className="Cost-Wrapper">
+                      <p>{cost}</p>
+                      <img
+                          className="Store-Coins"
+                          src="/images/coin.jpg"
+                          alt="Coin" />
+                    </div>
+                    {alreadyOwn.includes(badge)
+                      ? <button className="btn Own">Own</button>
+                      : <button
+                          className="btn Purchase"
+                          onClick={() => this.handlePurchaseBadge(badge, cost)}>Purchase</button>
+                    }
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+          <div className="Badge-Container">
+            <p>Celebration</p>
+            <div className="Badges-Wrapper">
+              {animations.map((badge, idx) => {
+                console.log(badge, animationgUsing);
+                return (
+                  <div className="Badge-Wrapper" key={`badge-${idx}`}>
+                    <Badge badge={badge} />
+                    <div className="Cost-Wrapper">
+                      <p>{cost * 2}</p>
+                      <img
+                          className="Store-Coins"
+                          src="/images/coin.jpg"
+                          alt="Coin" />
+                    </div>
+                    {alreadyOwn.includes(badge) || badge === CORRECT
+                      ? animationgUsing === badge
+                        ? <button className="btn Own">Using</button>
+                        : <button
+                            className="btn Purchase"
+                            onClick={() => this.handleUseCelebration(badge)}>Use</button>
+                      : <button
+                          className="btn Purchase"
+                          onClick={() => this.handlePurchaseBadge(badge, cost * 2)}>Purchase</button>
+                    }
+                  </div>
+                )
+              })}
+            </div>
+          </div>
         </div>
       </div>
     );

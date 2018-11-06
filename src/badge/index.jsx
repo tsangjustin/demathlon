@@ -8,6 +8,8 @@ import {
   NUMBER_ONE,
   BLUE_TRIANGLE,
   ANGLE,
+  YUP,
+  CORRECT,
 } from "./badges.json";
 
 import "./badge.css"
@@ -68,6 +70,20 @@ export class Badge extends Component {
             className="Badge"
             src="/images/sticker_7.jpg"
             alt="Angle Sticker"/>
+      );
+    } else if (badge === YUP) {
+      return (
+        <img
+            className="Badge"
+            src="/images/animation/yup.gif"
+            alt="Yup Gif"/>
+      );
+     }else if (badge === CORRECT) {
+      return (
+        <img
+            className="Badge"
+            src="/images/correct.jpg"
+            alt="Correct Sticker"/>
       );
     } else {
       return null;

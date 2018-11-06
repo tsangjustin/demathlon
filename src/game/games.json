@@ -71,7 +71,7 @@
   "COUNTING_MATH": [
     {
       "question": "Which tree has more apples?",
-      "answer": "<p>a) </p><img class='Choice-Image' src='/images/count_math/choice_1.png' />",
+      "answer": ["<p>a) </p><img class='Choice-Image' src='/images/count_math/choice_1.png' />"],
       "choices": [
         "<p>a) </p><img class='Choice-Image' src='/images/count_math/choice_1.png' />",
         "<p>b) </p><img class='Choice-Image' src='/images/count_math/choice_2.png' />"

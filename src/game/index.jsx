@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
 import {
+  CORRECT,
+  YUP,
+} from "../badge/badges.json";
+import {
   BASIC_MATH,
   PRE_ALGEBRA,
   GEOMETRY,
@@ -36,6 +40,7 @@ export class GamePage extends Component {
       streak: 0,
       curr_problem: 0,
       userEarnings: Number(localStorage.getItem("coins")) || 0,
+      animationUsing: Number(localStorage.getItem("correct_animation")) || CORRECT,
       problems: problems,
 
       showResult: false,
@@ -170,8 +175,16 @@ export class GamePage extends Component {
   }
 
   renderResult() {
-    const { isCorrect } = this.state;
-    const resultImage = isCorrect ? "/images/correct.jpg" : "/images/wrong.png";
+    const { animationUsing, isCorrect } = this.state;
+    let correct_animation = "/images/correct.jpg";
+    if (animationUsing === CORRECT) {
+      correct_animation = "/images/correct.jpg";
+    } else if (animationUsing === YUP) {
+      correct_animation = "/images/animation/yup.gif";
+    } else {
+      correct_animation = "/images/correct.jpg";
+    }
+    const resultImage = isCorrect ? correct_animation : "/images/wrong.png";
     return (
       <img
           className="animated fadeIn Question-Result"
