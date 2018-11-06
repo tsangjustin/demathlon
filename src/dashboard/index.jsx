@@ -227,7 +227,13 @@ export class DashboardPage extends Component {
     return (
       <div className="Dashboard-Wrapper">
         <div className="NavBar">
-          <p>DeMathlon</p>
+          <div className="Company-Wrapper">
+            <img
+                className="Logo-Image"
+                src="/images/logo.png"
+                alt="Company logo" />
+            <p>DeMathlon</p>
+          </div>
         </div>
         <div className="Dashboard-Page">
           {/* <Modal
