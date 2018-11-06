@@ -7,5 +7,9 @@
   "BLUE_TRIANGLE": 5,
   "ANGLE": 6,
   "YUP": 7,
-  "CORRECT": 8
+  "CORRECT": 8,
+  "CONGRATS": 9,
+  "AWESOME": 10,
+  "GREEN": 11,
+  "BANANA": 12
 }

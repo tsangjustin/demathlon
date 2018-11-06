@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import {
   CORRECT,
   YUP,
+  AWESOME,
+  GREEN,
+  CONGRATS,
+  BANANA,
 } from "../badge/badges.json";
 import {
   BASIC_MATH,
@@ -181,6 +185,14 @@ export class GamePage extends Component {
       correct_animation = "/images/correct.jpg";
     } else if (animationUsing === YUP) {
       correct_animation = "/images/animation/yup.gif";
+    } else if (animationUsing === CONGRATS) {
+      correct_animation = "/images/animation/congrats.gif"
+    } else if (animationUsing === AWESOME) {
+      correct_animation = "/images/animation/awesome.gif"
+    } else if (animationUsing === GREEN) {
+      correct_animation = "/images/animation/green.gif"
+    } else if (animationUsing === BANANA) {
+      correct_animation = "/images/animation/banana.gif"
     } else {
       correct_animation = "/images/correct.jpg";
     }

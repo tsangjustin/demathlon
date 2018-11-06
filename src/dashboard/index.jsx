@@ -15,6 +15,10 @@ import {
   ANGLE,
   CORRECT,
   YUP,
+  CONGRATS,
+  AWESOME,
+  GREEN,
+  BANANA,
 } from "../badge/badges.json";
 
 import "./dashboard.css"
@@ -130,6 +134,10 @@ export class DashboardPage extends Component {
     const animations = [
       CORRECT,
       YUP,
+      CONGRATS,
+      AWESOME,
+      GREEN,
+      BANANA,
     ];
     const cost = 50;
     const alreadyOwn = localStorage.getItem("badges") || [];

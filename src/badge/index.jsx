@@ -10,6 +10,10 @@ import {
   ANGLE,
   YUP,
   CORRECT,
+  CONGRATS,
+  AWESOME,
+  GREEN,
+  BANANA,
 } from "./badges.json";
 
 import "./badge.css"
@@ -78,12 +82,40 @@ export class Badge extends Component {
             src="/images/animation/yup.gif"
             alt="Yup Gif"/>
       );
-     }else if (badge === CORRECT) {
+     } else if (badge === CORRECT) {
       return (
         <img
             className="Badge"
             src="/images/correct.jpg"
             alt="Correct Sticker"/>
+      );
+    } else if (badge === CONGRATS) {
+      return (
+        <img
+            className="Badge"
+            src="/images/animation/congrats.gif"
+            alt="Congrats Gif"/>
+      );
+    } else if (badge === AWESOME) {
+      return (
+        <img
+            className="Badge"
+            src="/images/animation/awesome.gif"
+            alt="Awesome Gif"/>
+      );
+    } else if (badge === GREEN) {
+      return (
+        <img
+            className="Badge"
+            src="/images/animation/green.gif"
+            alt="Green Hand Gif"/>
+      );
+    } else if (badge === BANANA) {
+      return (
+        <img
+            className="Badge"
+            src="/images/animation/banana.gif"
+            alt="Banana Gif"/>
       );
     } else {
       return null;
