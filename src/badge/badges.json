@@ -3,5 +3,7 @@
   "MATH_NINJA": 1,
   "INTEGRAL": 2,
   "MATH_AWESOME": 3,
-  "NUMBER_ONE": 4
+  "NUMBER_ONE": 4,
+  "BLUE_TRIANGLE": 5,
+  "ANGLE": 6
 }

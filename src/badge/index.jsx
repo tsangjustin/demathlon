@@ -6,6 +6,8 @@ import {
   INTEGRAL,
   MATH_AWESOME,
   NUMBER_ONE,
+  BLUE_TRIANGLE,
+  ANGLE,
 } from "./badges.json";
 
 import "./badge.css"
@@ -52,6 +54,20 @@ export class Badge extends Component {
             className="Badge"
             src="/images/sticker_5.jpg"
             alt="Number One Sticker"/>
+      );
+    } else if (badge === BLUE_TRIANGLE) {
+      return (
+        <img
+            className="Badge"
+            src="/images/sticker_6.jpg"
+            alt="Triangle Sticker"/>
+      );
+    } else if (badge === ANGLE) {
+      return (
+        <img
+            className="Badge"
+            src="/images/sticker_7.jpg"
+            alt="Angle Sticker"/>
       );
     } else {
       return null;

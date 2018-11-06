@@ -11,6 +11,8 @@ import {
   INTEGRAL,
   MATH_AWESOME,
   NUMBER_ONE,
+  BLUE_TRIANGLE,
+  ANGLE,
 } from "../badge/badges.json";
 
 import "./dashboard.css"
@@ -109,6 +111,8 @@ export class DashboardPage extends Component {
       INTEGRAL,
       MATH_AWESOME,
       NUMBER_ONE,
+      BLUE_TRIANGLE,
+      ANGLE,
     ];
     const alreadyOwn = localStorage.getItem("badges") || [];
     return (
