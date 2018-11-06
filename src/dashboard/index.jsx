@@ -22,6 +22,9 @@ import {
   PIKACHU,
   CHECK,
   THUMBS_UP,
+  CHIPMUNK,
+  ADVENTURE_TIME,
+  SPONGEBOB,
 } from "../badge/badges.json";
 
 import "./dashboard.css"
@@ -144,6 +147,9 @@ export class DashboardPage extends Component {
       PIKACHU,
       CHECK,
       THUMBS_UP,
+      CHIPMUNK,
+      ADVENTURE_TIME,
+      SPONGEBOB,
     ];
     const cost = 50;
     const alreadyOwn = localStorage.getItem("badges") || [];

@@ -11,6 +11,9 @@ import {
   PIKACHU,
   CHECK,
   THUMBS_UP,
+  CHIPMUNK,
+  SPONGEBOB,
+  ADVENTURE_TIME,
 } from "../badge/badges.json";
 import {
   BASIC_MATH,
@@ -202,6 +205,12 @@ export class GamePage extends Component {
       correct_animation = "/images/animation/check.gif"
     } else if (animationUsing === THUMBS_UP) {
       correct_animation = "/images/animation/thumbs_up.gif"
+    } else if (animationUsing === CHIPMUNK) {
+      correct_animation="/images/animation/chipmunk.gif"
+    } else if (animationUsing === SPONGEBOB) {
+      correct_animation="/images/animation/spongebob.gif"
+    } else if (animationUsing === ADVENTURE_TIME) {
+      correct_animation="/images/animation/adventure_time.gif"
     } else {
       correct_animation = "/images/correct.jpg";
     }

@@ -17,6 +17,9 @@ import {
   PIKACHU,
   CHECK,
   THUMBS_UP,
+  CHIPMUNK,
+  ADVENTURE_TIME,
+  SPONGEBOB,
 } from "./badges.json";
 
 import "./badge.css"
@@ -140,6 +143,27 @@ export class Badge extends Component {
             className="Badge"
             src="/images/animation/thumbs_up.gif"
             alt="thumbs_up Gif"/>
+      );
+    } else if (badge === CHIPMUNK) {
+      return (
+        <img
+            className="Badge"
+            src="/images/animation/chipmunk.gif"
+            alt="CHIPMUNK Gif"/>
+      );
+    } else if (badge === SPONGEBOB) {
+      return (
+        <img
+            className="Badge"
+            src="/images/animation/spongebob.gif"
+            alt="SPONGEBOB Gif"/>
+      );
+    } else if (badge === ADVENTURE_TIME) {
+      return (
+        <img
+            className="Badge"
+            src="/images/animation/adventure_time.gif"
+            alt="ADVENTURE_TIME Gif"/>
       );
     } else {
       return null;
