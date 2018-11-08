@@ -13,11 +13,11 @@ export class GameTab extends Component {
     return (
       <div className="Game-Tab">
         <div>
-          <p>{gameText}</p>
-          <p>{difficulty}</p>
+          <p className="SignUp">{gameText}</p>
+          <p className="SignUp">{difficulty}</p>
         </div>
         <div>
-          <img src={img_path} />
+          <img src={img_path} alt={`Game logo for ${gameText}`} />
         </div>
       </div>
     );

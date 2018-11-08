@@ -99,6 +99,7 @@ export class SignUpPage extends Component {
                     <div className="form-group">
                         <input
                             type = 'text'
+                            id="displayName"
                             name='displayName'
                             onChange={this.handleChange}
                             value ={this.state.displayName}
@@ -109,6 +110,7 @@ export class SignUpPage extends Component {
                     <div className="form-group">
                         <input
                             autoComplete='email'
+                            id="email"
                             type = 'email'
                             name='email'
                             onChange={this.handleChange}
@@ -132,6 +134,7 @@ export class SignUpPage extends Component {
                     <div className="form-group">
                         <input
                             autoComplete ='new-password'
+                            id="passwordTwo"
                             type = 'password'
                             name='passwordTwo'
                             onChange={this.handleChange}

@@ -243,6 +243,7 @@ export class GamePage extends Component {
                 <div className="NavBar">
                     <Link to="/app">
                         <i className="fas fa-arrow-left left-arrow"></i>
+                        <p style={{color: "#0058ba"}}>Back</p>
                     </Link>
                     <SignOutButton />
                 </div>
@@ -254,8 +255,10 @@ export class GamePage extends Component {
                         <div className="Problem-Container">
                             {this.renderProblem(problem)}
                             <div className="User-Input">
+                            <label for="user-response"></label>
                                 <input
                                     type="text"
+                                    id="user-response"
                                     onChange={e =>
                                             this.handleInput(e.target.value)
                                     }

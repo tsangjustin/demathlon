@@ -83,6 +83,7 @@ export class LoginPage extends Component {
                     <div className="form-group">
                         <input
                             autoComplete='email'
+                            id="email"
                             type = 'email'
                             name='email'
                             onChange={this.handleChange}
@@ -94,6 +95,7 @@ export class LoginPage extends Component {
                     <div className="form-group">
                         <input
                             autoComplete ='new-password'
+                            id="password"
                             type = 'password'
                             name='password'
                             onChange={this.handleChange}
@@ -108,7 +110,7 @@ export class LoginPage extends Component {
                         </button>
                     </div>
 
-                    Not Registered yet? <Link to='/signup'> Click here to Register</Link>
+                    Not Registered yet? <Link className="SignUp" to='/signup'> Click here to Register</Link>
                 </form>
                 <br />
 
