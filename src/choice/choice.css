@@ -1,7 +1,7 @@
 .Choice {
   display: flex;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -15,39 +15,35 @@
 .Triangle {
   width: 0;
   height: 0;
-  border-left: 75px solid transparent;
-  border-right: 75px solid transparent;
-  border-bottom: 150px solid;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid;
 }
 
 .Circle {
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
   background: red;
   border-radius: 50%
 }
 
 .Square {
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
   background: red;
 }
 
 .Trapezoid {
-  border-bottom: 150px solid red;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
+  border-bottom: 100px solid red;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
   height: 0;
-  width: 100%;
+  width: 100px;
 }
 
 .Choice-Text{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
   position: absolute;
-  font-size: 3rem;
+  font-size: 2rem;
   top: 0;
   bottom: 0;
   left: 0;

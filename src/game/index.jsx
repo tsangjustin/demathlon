@@ -63,12 +63,10 @@ export class GamePage extends Component {
     }
 
     colors = [
-        "#648FFF",
-        "#785EF0",
-        "#DC267F",
-        "#FE6100",
-        "#FFB000",
-        "#61F780", //Green
+        "#EED6D6",
+        "#6FFF98",
+        "#FAFCAF",
+        "#44DCE5",
     ];
 
     shapes = [
@@ -147,16 +145,17 @@ export class GamePage extends Component {
         const correct_answer = problem.answer;
         let coinEarn = 5;
         if (userChoice == correct_answer) {
-            let audio = new Audio("/audio/Coin_Drop.mp3");
-            audio.play();
+            // let audio = new Audio("/audio/Coin_Drop.mp3");
+            // audio.play();
             // Animate the userEarnings
-            this.animateUserEarning(coinEarn);
+            // this.animateUserEarning(coinEarn);
             this.animateResult(true);
             this.setState({
                 streak: streak + 1,
                 userChoice: "",
                 answered: answered + 1,
                 correct: correct + 1,
+                userEarnings: userEarnings + coinEarn,
             }, () => {
                 localStorage.setItem("coins", userEarnings + coinEarn);
             });
@@ -188,33 +187,33 @@ export class GamePage extends Component {
     renderResult() {
         const { animationUsing, isCorrect } = this.state;
         let correct_animation = "/images/correct.jpg";
-        if (animationUsing === CORRECT) {
-            correct_animation = "/images/correct.jpg";
-        } else if (animationUsing === YUP) {
-            correct_animation = "/images/animation/yup.gif";
-        } else if (animationUsing === CONGRATS) {
-            correct_animation = "/images/animation/congrats.gif"
-        } else if (animationUsing === AWESOME) {
-            correct_animation = "/images/animation/awesome.gif"
-        } else if (animationUsing === GREEN) {
-            correct_animation = "/images/animation/green.gif"
-        } else if (animationUsing === BANANA) {
-            correct_animation = "/images/animation/banana.gif"
-        } else if (animationUsing === PIKACHU) {
-            correct_animation = "/images/animation/pikachu.gif"
-        } else if (animationUsing === CHECK) {
-            correct_animation = "/images/animation/check.gif"
-        } else if (animationUsing === THUMBS_UP) {
-            correct_animation = "/images/animation/thumbs_up.gif"
-        } else if (animationUsing === CHIPMUNK) {
-            correct_animation="/images/animation/chipmunk.gif"
-        } else if (animationUsing === SPONGEBOB) {
-            correct_animation="/images/animation/spongebob.gif"
-        } else if (animationUsing === ADVENTURE_TIME) {
-            correct_animation="/images/animation/adventure_time.gif"
-        } else {
-            correct_animation = "/images/correct.jpg";
-        }
+        // if (animationUsing === CORRECT) {
+        //     correct_animation = "/images/correct.jpg";
+        // } else if (animationUsing === YUP) {
+        //     correct_animation = "/images/animation/yup.gif";
+        // } else if (animationUsing === CONGRATS) {
+        //     correct_animation = "/images/animation/congrats.gif"
+        // } else if (animationUsing === AWESOME) {
+        //     correct_animation = "/images/animation/awesome.gif"
+        // } else if (animationUsing === GREEN) {
+        //     correct_animation = "/images/animation/green.gif"
+        // } else if (animationUsing === BANANA) {
+        //     correct_animation = "/images/animation/banana.gif"
+        // } else if (animationUsing === PIKACHU) {
+        //     correct_animation = "/images/animation/pikachu.gif"
+        // } else if (animationUsing === CHECK) {
+        //     correct_animation = "/images/animation/check.gif"
+        // } else if (animationUsing === THUMBS_UP) {
+        //     correct_animation = "/images/animation/thumbs_up.gif"
+        // } else if (animationUsing === CHIPMUNK) {
+        //     correct_animation="/images/animation/chipmunk.gif"
+        // } else if (animationUsing === SPONGEBOB) {
+        //     correct_animation="/images/animation/spongebob.gif"
+        // } else if (animationUsing === ADVENTURE_TIME) {
+        //     correct_animation="/images/animation/adventure_time.gif"
+        // } else {
+        //     correct_animation = "/images/correct.jpg";
+        // }
         const resultImage = isCorrect ? correct_animation : "/images/wrong.png";
         return (
             <img
@@ -278,14 +277,14 @@ export class GamePage extends Component {
                                     ))}
                                 </div>
                         }
-                        <div className="Game-Info-Wrapper">
+                        {/* <div className="Game-Info-Wrapper">
                             <div className="Game-Info">
                                 <p>Answered: {answered}</p>
                                 <p>Correct: {correct}</p>
                                 <p>Streak: {streak}</p>
                             </div>
                             <ProgressBar current={curr_problem} total={problems.length} />
-                        </div>
+                        </div> */}
                     </div>
                     {/* Coin section */}
                     <div className="Coin-Container">

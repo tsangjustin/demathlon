@@ -138,20 +138,20 @@ export class DashboardPage extends Component {
             BLUE_TRIANGLE,
             ANGLE,
         ];
-        const animations = [
-            CORRECT,
-            YUP,
-            CONGRATS,
-            AWESOME,
-            GREEN,
-            BANANA,
-            PIKACHU,
-            CHECK,
-            THUMBS_UP,
-            CHIPMUNK,
-            ADVENTURE_TIME,
-            SPONGEBOB,
-        ];
+        // const animations = [
+        //     CORRECT,
+        //     YUP,
+        //     CONGRATS,
+        //     AWESOME,
+        //     GREEN,
+        //     BANANA,
+        //     PIKACHU,
+        //     CHECK,
+        //     THUMBS_UP,
+        //     CHIPMUNK,
+        //     ADVENTURE_TIME,
+        //     SPONGEBOB,
+        // ];
         const cost = 50;
         const alreadyOwn = localStorage.getItem("badges") || [];
         return (
@@ -188,7 +188,7 @@ export class DashboardPage extends Component {
                             })}
                         </div>
                     </div>
-                    <div className="Badge-Container">
+                    {/* <div className="Badge-Container">
                         <p>Celebration</p>
                         <div className="Badges-Wrapper">
                             {animations.map((badge, idx) => {
@@ -217,7 +217,7 @@ export class DashboardPage extends Component {
                                 )
                             })}
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         );
