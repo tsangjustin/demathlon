@@ -60,6 +60,7 @@ export class SignUpPage extends Component {
     async socialSignOn(provider){
         try {
             await auth.doSocialSignIn(provider)
+            this.props.history.push('/app');
             
         } catch (error) {
             // Handle Errors here.
