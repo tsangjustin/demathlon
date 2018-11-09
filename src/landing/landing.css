@@ -1,3 +1,7 @@
 .SignUp {
   color: #0072ee;
 }
+
+.error {
+  color: red;
+}

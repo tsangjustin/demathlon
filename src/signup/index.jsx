@@ -36,7 +36,7 @@ export class SignUpPage extends Component {
         try{
             await auth.doCreateUserWithEmailAndPassword(email, passwordOne,displayName)
             this.setState({ ...INITIAL_STATE });
-            this.props.history.push('/home')
+            this.props.history.push('/app')
           
         }catch(e) {
             console.log(e.code);

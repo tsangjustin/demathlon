@@ -3,7 +3,6 @@ import { auth, firebase } from './firebase'
 async function doCreateUserWithEmailAndPassword(email,password,displayName){
     await auth.createUserWithEmailAndPassword(email, password)
    auth.currentUser.updateProfile({displayName: displayName})
-   console.log(`DISPLAY NAME ${displayName}`)
 }
 
 async function doSignInWithEmailAndPassword(email,password){

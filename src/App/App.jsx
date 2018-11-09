@@ -10,6 +10,17 @@ import { firebase } from "../firebase";
 
 import './App.css';
 
+const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route {...rest} render={(props) => (
+        firebase.isAuthenticated() === true
+            ? <Component {...props} {...rest} />
+            : <Redirect to={{
+                pathname: '/login',
+                state: { from: props.location }
+            }} />
+    )} />
+)
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -18,7 +29,6 @@ class App extends Component {
             authUser: null
         };
     }
-
     componentDidMount() {
         firebase.auth.onAuthStateChanged(authUser => {
             if (authUser) {
@@ -80,15 +90,5 @@ class App extends Component {
         );
     }
 }
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={(props) => (
-    firebase.isAuthenticated() === true
-      ? <Component {...props} {...rest}/>
-      : <Redirect to={{
-          pathname: '/login',
-          state: { from: props.location }
-        }} />
-  )} />
-)
 
 export default App;
