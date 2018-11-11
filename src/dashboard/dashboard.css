@@ -59,6 +59,8 @@
   display: flex;
   flex-direction: column;
   margin: 15px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .Badge-Container {
@@ -80,7 +82,6 @@
 .Cost-Wrapper {
   display: flex;
   flex-direction: row;
-  align-items: center;
 }
 
 .Store-Coins {
@@ -93,6 +94,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 10px;
 }
 
 .Badge-Wrapper Button {

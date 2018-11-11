@@ -163,25 +163,32 @@ export class DashboardPage extends Component {
                 </span>
                 <p className="Title">Badge Store</p>
                 <div className="Badge-Store-Wrapper">
-                    <div className="Badge-Container">
+                    <div
+                            lassName="Badge-Container"
+                            style={{
+                                height: "750px"
+                            }}>
                         <p>Badges</p>
                         <div className="Badges-Wrapper">
                             {badges.map((badge, idx) => {
                                 return (
-                                    <div className="Badge-Wrapper" key={`badge-${idx}`}>
+                                    <div
+                                            className="Badge-Wrapper"
+                                            key={`badge-${idx}`}>
                                         <Badge badge={badge} />
-                                        <div className="Cost-Wrapper">
-                                            <p>{cost}</p>
-                                            <img
-                                                className="Store-Coins"
-                                                src="/images/coin.jpg"
-                                                alt="Coin" />
-                                        </div>
                                         {alreadyOwn.includes(badge)
-                                                ? <button className="btn Own">Own</button>
-                                                : <button
-                                                    className="btn Purchase"
-                                                    onClick={() => this.handlePurchaseBadge(badge, cost)}>Purchase</button>
+                                            ? <button className="btn Own">Own</button>
+                                            : <button
+                                                className="btn Purchase"
+                                                onClick={() => this.handlePurchaseBadge(badge, cost)}>
+                                                    <div className="Cost-Wrapper">
+                                                        <p>{cost}</p>
+                                                        <img
+                                                            className="Store-Coins"
+                                                            src="/images/coin.jpg"
+                                                            alt="Coin" />
+                                                    </div>
+                                                </button>
                                         }
                                     </div>
                                 )
@@ -196,13 +203,6 @@ export class DashboardPage extends Component {
                                 return (
                                     <div className="Badge-Wrapper" key={`badge-${idx}`}>
                                         <Badge badge={badge} />
-                                        <div className="Cost-Wrapper">
-                                            <p>{cost * 2}</p>
-                                            <img
-                                                className="Store-Coins"
-                                                src="/images/coin.jpg"
-                                                alt="Coin" />
-                                        </div>
                                         {alreadyOwn.includes(badge) || badge === CORRECT
                                                 ? animationgUsing === badge
                                                 ? <button className="btn Own">Using</button>
@@ -211,7 +211,15 @@ export class DashboardPage extends Component {
                                                     onClick={() => this.handleUseCelebration(badge)}>Use</button>
                                                 : <button
                                                     className="btn Purchase"
-                                                    onClick={() => this.handlePurchaseBadge(badge, cost * 2)}>Purchase</button>
+                                                    onClick={() => this.handlePurchaseBadge(badge, cost * 2)}>
+                                                        <div className="Cost-Wrapper">
+                                                            <p>{cost * 2}</p>
+                                                            <img
+                                                                className="Store-Coins"
+                                                                src="/images/coin.jpg"
+                                                                alt="Coin" />
+                                                        </div>
+                                                    </button>
                                         }
                                     </div>
                                 )
