@@ -16,17 +16,19 @@ export class Profile extends Component {
     const { badges, coins, showModal} = this.props;
     const username = this.props.user.displayName;
     return (
-      <div>
-        <p className="Title">{username}</p>
-        <p className="Title">Badges</p>
-        <div className="Badges-Container">
-          {badges.map((badge, idx) => {
-            return (
-              <Badge
-                  badge={badge}
-                  key={`profile-badge-${idx}`} />
-            );
-          })}
+      <div className="Profile-Container">
+        <div className="Name-Badge-Wrapper">
+          <p className="Title">{username}</p>
+          <p className="Title">Badges</p>
+          <div className="Badges-Container">
+            {badges.map((badge, idx) => {
+              return (
+                <Badge
+                    badge={badge}
+                    key={`profile-badge-${idx}`} />
+              );
+            })}
+          </div>
         </div>
         <div className="Redeem-Badge-Container">
           <div className="User-Coins-Container">

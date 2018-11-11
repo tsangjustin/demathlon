@@ -109,17 +109,13 @@ export class LoginPage extends Component {
                             disabled={isInvalid}>Submit
                         </button>
                     </div>
-
+                    <img
+                        onClick={() => this.socialSignOn("google")}
+                        alt="google signin"
+                        src="./images/btn_google_signin.png" />
+                    <br />
                     Not Registered yet? <Link className="SignUp" to='/signup'> Click here to Register</Link>
                 </form>
-                <br />
-
-                    <img
-                    onClick={() => this.socialSignOn("google")}
-                    alt="google signin"
-                    src="./images/btn_google_signin.png"
-                />
-
         </div>
         );
     }

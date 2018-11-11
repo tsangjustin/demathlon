@@ -56,6 +56,12 @@
   flex-direction: column;
 }
 
+.Problem-Container > p {
+  display: flex;
+  flex-direction: row;
+  font-size: 2em;
+}
+
 .Problem-Container img {
   height: 200px;
   width: 200px;

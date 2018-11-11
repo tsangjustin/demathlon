@@ -1,7 +1,38 @@
 .SignUp {
-  color: #0072ee;
+  color: #006fe8;
+}
+
+.Landing-Button-Text {
+  font-size: 4em;
 }
 
 .error {
   color: red;
+}
+
+.Landing-Page {
+  height: 100%;
+  width: 100%;
+}
+
+.Landing-Page p {
+  font-size: 2em;
+}
+
+.Landing-Box-Section {
+  height: 100%;
+  width: 50%;
+}
+
+.Landing-Container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.Landing-Btn {
+  background-color: #5FE88C;
+  height: 300px;
+  width: 500px;
 }
