@@ -14,7 +14,7 @@ export class LandingPage extends Component {
                     <div className="Landing-Box-Section">
                         <p>Demathlon is an application to learn math</p>
                         <p>
-                            We are a website dedicate to your kid's math education.
+                            DeMathlon is a user friendly web application whose mission statement is to help students from K-8 to reinforce their Math learning in a way that is fun. It aims to separate itself from its competitors by focusing on user engagement.
                         </p>
                     </div>
                     <div className="Landing-Box-Section">
