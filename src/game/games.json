@@ -64,9 +64,34 @@
       "image": "/images/geometry_question_1.png",
       "answer": 5,
       "choices": [3, 4, 12, 5]
+    },
+    {
+      "question": "Find the area of this circle",
+      "image": "/images/circle.jpg",
+      "answer": "25&pi;",
+      "choices": ["5", "25&pi;", "5&pi;", "20"] 
+    },
+    {
+      "question": "Which best describes the relationship between lines AB and CD",
+      "image": "/images/parallel.png",
+      "answer": "Parallel",
+      "choices": ["Parallel", "Perpendicular", "Closed", "Intersecting"] 
     }
   ],
   "ALGEBRA": [
+    {
+      "question": "Find the value of x",
+      "image": "/images/equ1.jpg",
+      "answer": 1,
+      "choices": [3, 7, 1, 0] 
+    },
+    {
+      "question": "Which value solves the proportion?",
+      "image": "/images/equ2.jpg",
+      "answer": 9,
+      "choices": [9, 10, 90, -9] 
+    }
+
   ],
   "COUNTING_MATH": [
     {
