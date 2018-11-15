@@ -1,0 +1,13 @@
+.Leaderboard-Container {
+  display: flex;
+  flex-direction: column;
+}
+
+.Leaderboard-Row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+  border-bottom: 1px solid #000000;
+}

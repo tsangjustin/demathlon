@@ -242,7 +242,6 @@ export class DashboardPage extends Component {
                             src="/images/logo.png"
                             alt="Company logo" />
                         <p>DeMathlon</p>
-
                     </div>
                     <SignOutButton />
                 </div>
@@ -260,7 +259,8 @@ export class DashboardPage extends Component {
           </div>
           {showBadgeStore ? this.renderBadgeStore() : this.renderGames()}
           <div className="Leaderboard-Panel">
-              <Leaderboard />
+                <Leaderboard
+                    user={this.props.authUser} />
           </div>
       </div>
   </div>

@@ -159,6 +159,8 @@ export class GamePage extends Component {
                 correct: correct + 1,
             }, () => {
                 localStorage.setItem("coins", userEarnings + coinEarn);
+                const user_points = Number(localStorage.getItem("user_record")) || 0;
+                localStorage.setItem("user_record", user_points + coinEarn);
             });
         } else {
             this.animateResult(false);
