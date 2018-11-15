@@ -15,9 +15,9 @@ export class SignOutButton extends Component {
     render() {
         return (
             <button
-                type="button"
-                onClick={this.onClick}
-            >
+                    className="btn"
+                    type="button"
+                    onClick={this.onClick}>
                 Sign Out
             </button>
         );

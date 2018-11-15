@@ -264,6 +264,7 @@ export class GamePage extends Component {
                                     }
                                     value={userChoice} />
                                 <button
+                                    className="btn"
                                     disabled={showResult} 
                                     onClick={this.handleSubmit}>Enter</button>
                             </div>

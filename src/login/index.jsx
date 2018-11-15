@@ -72,13 +72,11 @@ export class LoginPage extends Component {
             password === '' || 
             email === '' ||
             password.length < 6;
-
         return (
             <div>
                 <h1>Login</h1>
                 { error && <p className="error">{error}</p> }
                 <form onSubmit={this.onSubmit.bind(this)}>
-
                     <label htmlFor="email">Email Address:</label>
                     <div className="form-group">
                         <input
@@ -110,6 +108,7 @@ export class LoginPage extends Component {
                         </button>
                     </div>
                     <img
+                        className="pointer"
                         onClick={() => this.socialSignOn("google")}
                         alt="google signin"
                         src="./images/btn_google_signin.png" />

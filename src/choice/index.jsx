@@ -37,14 +37,14 @@ export class Choice extends Component {
     if (isImage) {
       return (
         <div
-            className="Choice"
+            className="Choice pointer"
             onClick={onClick}
             dangerouslySetInnerHTML={isImage && { __html: value }} />
       );
     } else {
       return (
         <div
-            className="Choice"
+            className="Choice pointer"
             onClick={onClick}>
             {this.renderShape()}
             <p className="Choice-Text" dangerouslySetInnerHTML={{ __html: value }}></p>
