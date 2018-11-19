@@ -70,12 +70,6 @@
       "image": "/images/circle.jpg",
       "answer": "25&pi;",
       "choices": ["5", "25&pi;", "5&pi;", "20"] 
-    },
-    {
-      "question": "Which best describes the relationship between lines AB and CD",
-      "image": "/images/parallel.png",
-      "answer": "Parallel",
-      "choices": ["Parallel", "Perpendicular", "Closed", "Intersecting"] 
     }
   ],
   "ALGEBRA": [
