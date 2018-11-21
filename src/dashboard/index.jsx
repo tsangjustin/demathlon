@@ -92,36 +92,45 @@ export class DashboardPage extends Component {
             <div className="Game-Panel">
                 <p className="Title">Games</p>
                 <div className="Games-Container">
-                    <Link to={`/game/basic_math`}>
-                        <GameTab
-                            difficulty="Easy"
-                            gameText="Basic Math"
-                            img_path="images/math_operator.png" />
-                    </Link>
-                    <Link to={`/game/pre_algebra`}>
-                        <GameTab
-                            difficulty="Medium"
-                            gameText="Pre Algebra"
-                            img_path="images/pre_algebra.jpg" />
-                    </Link>
-                    <Link to={`/game/geometry`}>
-                        <GameTab
-                            difficulty="Medium"
-                            gameText="Geometry"
-                            img_path="images/geometry.jpg" />
-                    </Link>
-                    <Link to={`/game/counting_math`}>
-                        <GameTab
-                            difficulty="Easy"
-                            gameText="Counting Math"
-                            img_path="images/numbers.jpg" />
-                    </Link>
-                    <Link to={`/game`}>
-                        <GameTab
-                            difficulty="Easy"
-                            gameText="Basic Math"
-                            img_path="images/math_operator.png" />
-                    </Link>
+                    <div>
+                        <p>Kindergarten - 5th grade</p>
+                        <div className="Grade-Games">
+                            <Link to={`/game/basic_math`}>
+                                <GameTab
+                                    difficulty="Easy"
+                                    gameText="Basic Math"
+                                    img_path="images/math_operator.png" />
+                            </Link>
+                            <Link to={`/game/counting_math`}>
+                                <GameTab
+                                    difficulty="Easy"
+                                    gameText="Counting Math"
+                                    img_path="images/numbers.jpg" />
+                            </Link>
+                        </div>
+                    </div>
+                    <div>
+                        <p>6th grade</p>
+                        <div className="Grade-Games">
+                            <Link to={`/game/pre_algebra`}>
+                                <GameTab
+                                    difficulty="Medium"
+                                    gameText="Pre Algebra"
+                                    img_path="images/pre_algebra.jpg" />
+                            </Link>
+                        </div>
+                    </div>
+                    <div>
+                        <p>7th grade</p>
+                        <div className="Grade-Games">
+                            <Link to={`/game/geometry`}>
+                                <GameTab
+                                    difficulty="Medium"
+                                    gameText="Geometry"
+                                    img_path="images/geometry.jpg" />
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

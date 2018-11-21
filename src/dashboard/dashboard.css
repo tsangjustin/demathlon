@@ -116,12 +116,23 @@
 
 .Games-Container {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
 }
 
 .Games-Container > * {
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+.Grade-Games {
+  display: flex;
+  flex-direction: row;
+}
+
+.Grade-Games > * {
   margin-right: 15px;
   margin-bottom: 15px;
 }
