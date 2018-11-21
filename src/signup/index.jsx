@@ -14,12 +14,16 @@ export class SignUpPage extends Component {
         super(props);
         this.state ={...INITIAL_STATE}
     }
+
     handleChange =(e)=>{
         if (e.target.name === 'passwordTwo'){
             if (e.target.value !== document.getElementById('passwordOne').value){
                 this.setState({error:'Passwords not the same'})
-            }else{ 
-                this.setState({error: null})}
+            } else if (e.target.value.length < 6) {
+                this.setState({error:'Password must be at least 6 character'})
+            } else { 
+                this.setState({error: null})
+            }
         }
         let newState ={};
         newState[e.target.name] = e.target.value;
@@ -31,7 +35,7 @@ export class SignUpPage extends Component {
             displayName,
             email,
             passwordOne,
-          } = this.state;
+        } = this.state;
         
         try{
             await auth.doCreateUserWithEmailAndPassword(email, passwordOne,displayName)
@@ -93,7 +97,6 @@ export class SignUpPage extends Component {
         return (
             <div>
                 <h1>Sign Up</h1>
-                { error && <p className="error">{error}</p> }
                 <form onSubmit={this.onSubmit.bind(this)}>
 
                     <label htmlFor="displayName">Name:</label>
@@ -144,10 +147,12 @@ export class SignUpPage extends Component {
                     </div>
                     <div className="form-group">
                         <button
-                            type="submit"
-                            disabled={isInvalid}>Submit
+                                type="submit"
+                                disabled={isInvalid}>
+                            Submit
                         </button>
                     </div>
+                    { error && <p className="error">{error}</p> }
                 </form>
 
                 <img
