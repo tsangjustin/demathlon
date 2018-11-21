@@ -1,3 +1,17 @@
+# DeMathlon
+
+## Team Members
+  1. Justin Tsang
+  2. Keyur Ved
+  3. Alexander Schlumpf
+  4. Ning Zhang
+
+## How to Run
+  - Install NodeJS
+  - Run `npm install`
+  - Run `npm start`
+  - Visit `localhost:3000` on any browser (Preferably Chrome)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
