@@ -70,6 +70,36 @@
       "image": "/images/circle.jpg",
       "answer": "25&pi;",
       "choices": ["5", "25&pi;", "5&pi;", "20"] 
+    },
+    {
+      "question": "Find the area of this triangle",
+      "image": "/images/triangle.png",
+      "answer": "54",
+      "choices": ["54.5", "54", "108", "3"] 
+    },
+    {
+      "question": "Find the perimeter of this rectangle.",
+      "image": "/images/perimeter.png",
+      "answer": "16",
+      "choices": ["16", "125", "10", "6"] 
+    },
+    {
+      "question": "Two lines that do not touch are not necessarily parallel.",
+      "image": "",
+      "answer": "False",
+      "choices": ["True", "False"] 
+    },
+    {
+      "question": "The hypotenuse of a triangle is always opposite of its right angle.",
+      "image": "",
+      "answer": "True",
+      "choices": ["True", "False"] 
+    },
+    {
+      "question": "Two angles that add to 90 degrees are complementary.",
+      "image": "",
+      "answer": "True",
+      "choices": ["True", "False"] 
     }
   ],
   "ALGEBRA": [
