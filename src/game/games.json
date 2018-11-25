@@ -84,6 +84,24 @@
       "choices": ["16", "125", "10", "6"] 
     },
     {
+      "question": "Find angle A.",
+      "image": "/images/angle.png",
+      "answer": "87",
+      "choices": ["74", "90", "134", "87"] 
+    },
+    {
+      "question": "Find the area of this figure.",
+      "image": "/images/area2.png",
+      "answer": "270",
+      "choices": ["300", "93", "270", "101"] 
+    },
+    {
+      "question": "Find the area of the shaded region.",
+      "image": "/images/area3.png",
+      "answer": "208",
+      "choices": ["208", "73", "282", "200"] 
+    },
+    {
       "question": "Two lines that do not touch are not necessarily parallel.",
       "image": "",
       "answer": "False",
